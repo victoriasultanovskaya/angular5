@@ -4,58 +4,20 @@ import {CoursesService} from './courses.service';
 @Component({
     selector: 'app-courses',
     template: `
-        <h2>{{ getTitle() }}</h2>
-        <ul>
-            <li *ngFor="let course of courses">{{course}}</li>
-        </ul>
-        <div>
-            <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/>
-        </div>
-        <div (click)="onDivClicked()">
-            <button
-                    class="btn btn-primary"
-                    title="Save"
-                    [class.active]="isActive"
-                    [style.backgroundColor]="isActive? 'green' : 'red'"
-                    (click)="onSave($event)"
-            >Save
-            </button>
-        </div>
+        {{course.title | uppercase | lowercase}} <br />
+        {{course.students | number}} <br />
+        {{course.rating | number:'1.1-1'}} <br />
+        {{course.price | currency:'AUD':true:'3.2-2'}} <br />
+        {{course.releaseDate | date:'medium'}} <br />
     `
 })
 
 export class CoursesComponent {
-    title = 'Courses list';
-    courses;
-    isActive = true;
-    email = 'me@gmail.com';
-
-    // Logic for calling HTTP service
-
-    constructor(service: CoursesService) {
-        this.courses = service.getCourses();
-    }
-
-    getTitle() {
-        return this.title;
-    }
-
-    onSave($event) {
-        $event.stopPropagation();
-
-        console.log('Button was clicked!!!', $event);
-    }
-
-    onDivClicked() {
-
-        console.log('Div was clicked!!!');
-    }
-
-    onKeyUp() {
-        // if ($event.keyCode === 13) {
-        //     console.log('ENTER was pressed!!!');
-        // }
-        console.log('ENTER was pressed!!!');
-        console.log(this.email);
+    course = {
+        title: 'The Complete Angular Course',
+        rating: 4.9745,
+        students: 30123,
+        price: 190.95,
+        releaseDate: new Date(2016, 3, 3) //https://angular.io/api/common/DatePipe
     }
 }
