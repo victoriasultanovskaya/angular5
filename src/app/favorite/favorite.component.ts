@@ -1,24 +1,11 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'favorite',
     templateUrl: './favorite.component.html',
     styleUrls: ['./favorite.component.css', './favorite-additional.component.css'],
-    styles: [
-        `
-            i.glyphicon {
-                color: blue;
-                font-size: 75px;
-            }
-        `,
-        `
-            i.glyphicon {
-                color: green;
-                font-size: 80px;
-            }
-        `
-    ],
-    inputs: ['isFavorite']
+    inputs: ['isFavorite'],
+    //encapsulation: ViewEncapsulation.Emulated //Default value
 })
 export class FavoriteComponent implements OnInit {
     @Input('isFavorite') isSelected: boolean;
