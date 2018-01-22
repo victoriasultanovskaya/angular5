@@ -14,6 +14,6 @@ export class AppComponent {
     }
 
     onFavoriteChange() {
-
+        console.log("Favorite changed!!!");
     }
 }
