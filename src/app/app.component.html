@@ -3,7 +3,7 @@
 
 <app-authors></app-authors>
 
-<app-favorite></app-favorite>
+<favorite [isFavorite]="post.isFavorite" (change)="onFavoriteChange()"></favorite>
 
 
 <div>
