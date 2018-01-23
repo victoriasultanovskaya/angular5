@@ -1,1 +1,8 @@
-<favorite></favorite>
+<button
+        [ngStyle]="{
+            backgroundColor: canSave ? 'blue' : 'grey',
+            color: canSave ? 'white' : 'black',
+            fontWeight: canSave ? 'bold' : 'normal'
+        }">
+    Save
+</button>
