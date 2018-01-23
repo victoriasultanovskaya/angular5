@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 
 /**
@@ -8,15 +8,13 @@ import { Component, OnInit } from '@angular/core';
  * @see angular5\src\assets\FormTypes.png
  */
 @Component({
-  selector: 'contact-form',
-  templateUrl: './contact-form.component.html',
-  styleUrls: ['./contact-form.component.css']
+    selector: 'contact-form',
+    templateUrl: './contact-form.component.html',
+    styleUrls: ['./contact-form.component.css']
 })
-export class ContactFormComponent implements OnInit {
+export class ContactFormComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    log(x) {
+        console.log(x);
+    }
 }
