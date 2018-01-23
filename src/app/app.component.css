@@ -1,3 +1,12 @@
-.nav a {
-    cursor: pointer;
+li {
+    background-color: cadetblue;
+}
+li.odd {
+    background-color: #ccc;
+}
+li.first {
+    border-top: 1px solid red;
+}
+li.last {
+    border-bottom: 1px solid red;
 }
