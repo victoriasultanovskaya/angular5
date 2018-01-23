@@ -7,7 +7,9 @@
                id="firstName"
                (change)="log(firstName)"
                type="text"
+               required="required"
                class="form-control">
+        <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">First Name is required.</div>
     </div>
     <div class="form-group">
         <label for="comment">Comment</label>
