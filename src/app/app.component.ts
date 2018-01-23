@@ -14,4 +14,15 @@ export class AppComponent {
         {id: 3, name: 'course3'},
         {id: 4, name: 'course4'}
     ];
+
+    onAdd() {
+        let nextIndex = this.courses.length + 1;
+        this.courses.push({id: nextIndex, name: 'course' + nextIndex});
+    }
+
+    onChange(course) {
+        let courseIndex = this.courses.indexOf(course);
+        this.courses.splice(courseIndex, 1);
+    }
 }
+

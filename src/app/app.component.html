@@ -1,10 +1,12 @@
 <!--https://angular.io/api/common/NgForOf-->
+<button (click)="onAdd()">ADD</button>
 <ul>
     <li
             *ngFor="let course of courses; index as i; odd as isOdd; first as isFirst; last as isLast"
             [class.odd]="isOdd"
             [class.first]="isFirst"
             [class.last]="isLast">
-        {{ i+1 }} - {{ course.name }}
+        {{ i+1 }} - {{ course.name }} [{{ course.id }}]
+        <button (click)="onChange(course)">REMOVE</button>
     </li>
 </ul>
