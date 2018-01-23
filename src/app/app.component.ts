@@ -8,20 +8,5 @@ import {isBoolean} from "util";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'Angular App';
-
-    post = {
-        title: "Title",
-        isFavorite: true
-    }
-
-    onFavoriteChange(eventArgs: FavoriteChangedEventArgs) {
-        console.log("Favorite changed!!!", eventArgs);
-    }
-
-    tweet = {
-        body: 'Here is the tweet',
-        isActive: true,
-        likesCount: 10
-    }
+    courses = [1, 2];
 }
