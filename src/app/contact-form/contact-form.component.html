@@ -56,8 +56,14 @@
         <label for="contactMethod">Contact Method</label>
         <select multiple ngModel name="contactMethod" #contactMethod="ngModel" id="contactMethod" class="form-control">
             <option value=""></option>
-            <option *ngFor="let contactMethod of contactMethods" [ngValue]="contactMethod">{{contactMethod.name}}</option>
+            <option *ngFor="let contactMethod of contactMethods" [value]="contactMethod.id">{{contactMethod.name}}</option>
         </select>
+    </div>
+    <div *ngFor="let contactMethod of contactMethods" class="radio">
+        <label for="contactMethod">
+            <input ngModel type="radio" name="contactMethod" [value]="contactMethod.id">
+            {{contactMethod.name}}
+        </label>
     </div>
     <p>{{ form.value | json}}</p>
     <button class="btn btn-primary" [disabled]="!form.valid">Submit</button>
