@@ -1,4 +1,1 @@
-<span *ngIf="task.assignee"> {{ task.assignee.name }} </span>
-
-<!--Safe Traversal Operator-->
-<span> {{ task.assignee?.name }} </span>
+<input type="text" [appInputFormat]="'uppercase'" />
