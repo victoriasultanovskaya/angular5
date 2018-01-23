@@ -1,8 +1,4 @@
-<button
-        [ngStyle]="{
-            backgroundColor: canSave ? 'blue' : 'grey',
-            color: canSave ? 'white' : 'black',
-            fontWeight: canSave ? 'bold' : 'normal'
-        }">
-    Save
-</button>
+<span *ngIf="task.assignee"> {{ task.assignee.name }} </span>
+
+<!--Safe Traversal Operator-->
+<span> {{ task.assignee?.name }} </span>

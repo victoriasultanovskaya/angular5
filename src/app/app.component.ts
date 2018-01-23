@@ -8,6 +8,12 @@ import {isBoolean} from "util";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    canSave = true;
+    task = {
+        title: 'Review Applications',
+        // assignee: {
+        //     name: 'John Smith'
+        // }
+        assignee: null
+    }
 }
 
