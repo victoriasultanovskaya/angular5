@@ -1,8 +1,8 @@
 <!--https://angular.io/api/common/NgForOf-->
-<button (click)="onAdd()">ADD</button>
+<button (click)="loadCourses()">Load Courses</button>
 <ul>
     <li
-            *ngFor="let course of courses; index as i; odd as isOdd; first as isFirst; last as isLast"
+            *ngFor="let course of courses; index as i; odd as isOdd; first as isFirst; last as isLast; trackBy: trackCourse"
             [class.odd]="isOdd"
             [class.first]="isFirst"
             [class.last]="isLast">

@@ -8,21 +8,24 @@ import {isBoolean} from "util";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    courses = [
-        {id: 1, name: 'course1'},
-        {id: 2, name: 'course2'},
-        {id: 3, name: 'course3'},
-        {id: 4, name: 'course4'}
-    ];
-
-    onAdd() {
-        let nextIndex = this.courses.length + 1;
-        this.courses.push({id: nextIndex, name: 'course' + nextIndex});
-    }
+    courses;
 
     onChange(course) {
         let courseIndex = this.courses.indexOf(course);
         this.courses.splice(courseIndex, 1);
+    }
+
+    loadCourses() {
+        this.courses = [
+            {id: 1, name: 'course1'},
+            {id: 2, name: 'course2'},
+            {id: 3, name: 'course3'},
+            {id: 4, name: 'course4'}
+        ];
+    }
+
+    trackCourse(index, course){
+        return (course.id) ? course.id : undefined;
     }
 }
 
