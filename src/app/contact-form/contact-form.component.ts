@@ -17,4 +17,9 @@ export class ContactFormComponent {
     log(x) {
         console.log(x);
     }
+
+    submit(form){
+        console.log(form);
+        console.log(form.value); //Send it to server
+    }
 }
