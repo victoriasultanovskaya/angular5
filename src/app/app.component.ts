@@ -8,5 +8,9 @@ import {isBoolean} from "util";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    courses = [1, 2];
+    viewMode = 'somethingElse';
+
+    changeViewMode(viewMode) {
+        this.viewMode = viewMode;
+    }
 }
