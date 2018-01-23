@@ -1,12 +1,9 @@
-<!--https://angular.io/api/common/NgForOf-->
-<button (click)="loadCourses()">Load Courses</button>
-<ul>
-    <li
-            *ngFor="let course of courses; index as i; odd as isOdd; first as isFirst; last as isLast; trackBy: trackCourse"
-            [class.odd]="isOdd"
-            [class.first]="isFirst"
-            [class.last]="isLast">
-        {{ i+1 }} - {{ course.name }} [{{ course.id }}]
-        <button (click)="onChange(course)">REMOVE</button>
-    </li>
-</ul>
+<div *ngIf="courses.length>0; else noCourses">List of courses</div>
+<ng-template #noCourses>No courses yet</ng-template>
+
+<!--The same as-->
+<ng-template [ngIf]="courses.length>0">
+    <div>List of courses</div>
+</ng-template>
+<ng-template [ngIf]="!(courses.length>0)">No courses yet</ng-template>
+
