@@ -23,6 +23,7 @@ import { CourseTopicComponent } from './course-topic/course-topic.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import {HttpModule} from "@angular/http";
 import { PostsComponent } from './posts/posts.component';
+import {PostService} from "./services/post/post.service";
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { PostsComponent } from './posts/posts.component';
     ],
     providers: [
         CoursesService,
-        AuthorsService
+        AuthorsService,
+        PostService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Http} from "@angular/http";
+import {PostService} from "../services/post/post.service";
 
 @Component({
     selector: 'posts',
@@ -10,9 +10,9 @@ import {Http} from "@angular/http";
 // @see angular5\src\assets\HTTPRequests.png
 export class PostsComponent implements OnInit {
     posts: any;
-    private url = 'https://jsonplaceholder.typicode.com/posts';
 
-    constructor(private http: Http) {
+
+    constructor(private service: PostService) {
 
     }
 
@@ -20,7 +20,7 @@ export class PostsComponent implements OnInit {
         let post = {title: input.value};
         input.value = '';
 
-        this.http.post(this.url, JSON.stringify(post))
+        this.service.createPost(post)
             .subscribe(response => {
                 console.log(response.json());
                 post['id'] = response.json().id;
@@ -30,16 +30,15 @@ export class PostsComponent implements OnInit {
 
     updatePost(post) {
         //Use patch to update only a few of the properties
-        this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}))
+        this.service.updatePost(post)
             .subscribe((response) => {
                 console.log(response.json());
             });
-        //Use put to update
-        //this.http.put(this.url, JSON.stringify(post));
+
     }
 
     deletePost(post) {
-        this.http.delete(this.url + '/' + post.id)
+        this.service.deletePost(post)
             .subscribe((response) => {
                 console.log(response.json());
                 let index = this.posts.lastIndexOf(post);
@@ -49,7 +48,7 @@ export class PostsComponent implements OnInit {
 
     ngOnInit() {
         console.log('INIT');
-        this.http.get(this.url)
+        this.service.getPosts()
             .subscribe(response => {
                 console.log(response.json());
                 this.posts = response.json();
