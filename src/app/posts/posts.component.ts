@@ -41,4 +41,13 @@ export class PostsComponent {
         //Use put to update
         //this.http.put(this.url, JSON.stringify(post));
     }
+
+    deletePost(post) {
+        this.http.delete(this.url + '/' + post.id)
+            .subscribe((response) => {
+                console.log(response.json());
+                let index = this.posts.lastIndexOf(post);
+                this.posts.splice(index, 1);
+            });
+    }
 }
