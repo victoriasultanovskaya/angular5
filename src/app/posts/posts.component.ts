@@ -8,16 +8,12 @@ import {Http} from "@angular/http";
 })
 
 // @see angular5\src\assets\HTTPRequests.png
-export class PostsComponent {
+export class PostsComponent implements OnInit {
     posts: any;
     private url = 'https://jsonplaceholder.typicode.com/posts';
 
     constructor(private http: Http) {
-        http.get(this.url)
-            .subscribe(response => {
-                console.log(response.json());
-                this.posts = response.json();
-            }); //"subscribe" method means - when result is ready we'll be notified
+
     }
 
     createPost(input: HTMLInputElement) {
@@ -49,5 +45,14 @@ export class PostsComponent {
                 let index = this.posts.lastIndexOf(post);
                 this.posts.splice(index, 1);
             });
+    }
+
+    ngOnInit() {
+        console.log('INIT');
+        this.http.get(this.url)
+            .subscribe(response => {
+                console.log(response.json());
+                this.posts = response.json();
+            }); //"subscribe" method means - when result is ready we'll be notified
     }
 }
