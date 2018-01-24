@@ -31,4 +31,14 @@ export class PostsComponent {
                 this.posts.splice(0, 0, post);
             });
     }
+
+    updatePost(post) {
+        //Use patch to update only a few of the properties
+        this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}))
+            .subscribe((response) => {
+                console.log(response.json());
+            });
+        //Use put to update
+        //this.http.put(this.url, JSON.stringify(post));
+    }
 }
