@@ -21,6 +21,8 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import {SignupFormComponent} from "./signup-form/signup-form.component";
 import { CourseTopicComponent } from './course-topic/course-topic.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import {HttpModule} from "@angular/http";
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
@@ -40,12 +42,14 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
         NewCourseFormComponent,
         SignupFormComponent,
         CourseTopicComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        PostsComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule
     ],
     providers: [
         CoursesService,
