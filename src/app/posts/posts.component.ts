@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../services/post/post.service";
+import {AppError} from "../common/app-error";
+import {NotFoundError} from "../common/not-found-error";
+import {BadRequestError} from "../common/bad-request-error";
 
 @Component({
     selector: 'posts',
@@ -27,8 +30,8 @@ export class PostsComponent implements OnInit {
                     post['id'] = response.json().id;
                     this.posts.splice(0, 0, post);
                 },
-                (error: Response) => {
-                    if (error.status === 400) {
+                (error: AppError) => {
+                    if (error instanceof BadRequestError) {
                         //this.form.setErrors(error.json());
                     } else {
                         alert('An unexpected error occurred');
@@ -59,8 +62,8 @@ export class PostsComponent implements OnInit {
                     let index = this.posts.lastIndexOf(post);
                     this.posts.splice(index, 1);
                 },
-                (error: Response) => {
-                    if (error.status === 404) {
+                (error: AppError) => {
+                    if (error instanceof NotFoundError) {
                         alert('This post has already been deleted.');
                     } else {
                         alert('An unexpected error occurred');
@@ -70,7 +73,6 @@ export class PostsComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log('INIT');
         this.service.getPosts()
         //"subscribe" method means - when result is ready we'll be notified
             .subscribe(
