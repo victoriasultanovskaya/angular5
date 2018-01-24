@@ -8,5 +8,17 @@ export class UsernameValidators {
         }
         return null;
     }
-}
 
+    static shouldBeUnique(control: AbstractControl): ValidationErrors | null {
+        //simulate response from server
+        setTimeout(() => {
+            console.log('OK');
+            if (control.value === 'viktoriia') {
+                return {shouldBeUnique: true};
+            }
+            return null;
+        }, 2000);
+
+        return null;
+    }
+}
