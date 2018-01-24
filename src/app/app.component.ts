@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {FavoriteChangedEventArgs} from "./favorite/favorite.component";
-import {isBoolean} from "util";
+import {FavoriteChangedEventArgs} from './favorite/favorite.component';
+import {isBoolean} from 'util';
 
 @Component({
     selector: 'app-root',
@@ -14,6 +14,6 @@ export class AppComponent {
         //     name: 'John Smith'
         // }
         assignee: null
-    }
+    };
 }
 

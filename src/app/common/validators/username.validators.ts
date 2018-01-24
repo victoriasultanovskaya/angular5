@@ -1,4 +1,4 @@
-import {AbstractControl, ValidationErrors} from "@angular/forms";
+import {AbstractControl, ValidationErrors, AsyncValidatorFn } from "@angular/forms";
 
 export class UsernameValidators {
 
@@ -16,8 +16,9 @@ export class UsernameValidators {
                 if (control.value === 'some_text') {
                     resolve({ shouldBeUnique: true });
                 } else {
-                    resolve(null); // resolve
+                    resolve(null);
                 }
+
             }, 2000);
         });
     }
