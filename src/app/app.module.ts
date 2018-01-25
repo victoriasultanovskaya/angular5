@@ -25,6 +25,8 @@ import {HttpModule} from '@angular/http';
 import {PostsComponent} from './posts/posts.component';
 import {PostService} from './services/post/post.service';
 import {AppErrorHandler} from './common/errors/app-error-handler';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import {GithubFollowersService} from "./services/github-followers/github-followers.service";
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import {AppErrorHandler} from './common/errors/app-error-handler';
         SignupFormComponent,
         CourseTopicComponent,
         ChangePasswordComponent,
-        PostsComponent
+        PostsComponent,
+        GithubFollowersComponent
     ],
     imports: [
         BrowserModule,
@@ -57,6 +60,7 @@ import {AppErrorHandler} from './common/errors/app-error-handler';
         CoursesService,
         AuthorsService,
         PostService,
+        GithubFollowersService,
         //means "Instead of ErrorHandler use class AppErrorHandler"
         {provide: ErrorHandler, useClass: AppErrorHandler}
     ],
