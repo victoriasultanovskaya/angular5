@@ -18,16 +18,23 @@ export class PostsComponent implements OnInit {
     }
 
     createPost(input: HTMLInputElement) {
-        const post = {title: input.value};
+        let post = {title: input.value};
+        /* Optimistic update - first update User Interface then push updates to server and wait for the response :-) */
+        this.posts.splice(0, 0, post);
+
         input.value = '';
 
         this.service.create(post)
             .subscribe(
                 newPost => {
                     post['id'] = newPost.id;
-                    this.posts.splice(0, 0, post);
+
                 },
                 (error: AppError) => {
+                    /*But if something goes wrong we'll roll back changes*/
+                    /*go to position 0 and delete 1 item*/
+                    this.posts.splice(0, 1);
+
                     if (error instanceof BadRequestError) {
                         /*this.form.setErrors(error.json());*/
                     } else {
@@ -47,14 +54,18 @@ export class PostsComponent implements OnInit {
     }
 
     deletePost(post) {
+        /*Optimistic update*/
+        let index = this.posts.indexOf(post);
+        this.posts.splice(index, 1);
+        /*--Optimistic update*/
+
         this.service.delete(post.id)
-        /*this.service.delete(345)*/
             .subscribe(
-                () => {
-                    let index = this.posts.lastIndexOf(post);
-                    this.posts.splice(index, 1);
-                },
+                null,
                 (error: AppError) => {
+                    /*Rollback in case of error*/
+                    this.posts.splice(index, 0, post);
+
                     if (error instanceof NotFoundError) {
                         alert('This post has already been deleted.');
                     } else {
