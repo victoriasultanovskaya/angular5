@@ -60,23 +60,30 @@ export class PostsComponent implements OnInit {
         /*--Optimistic update*/
 
         this.service.delete(post.id)
-            .subscribe(
-                null,
-                (error: AppError) => {
-                    /*Rollback in case of error*/
-                    this.posts.splice(index, 0, post);
-
-                    if (error instanceof NotFoundError) {
-                        alert('This post has already been deleted.');
-                    } else {
-                        throw error;
-                    }
-                });
+            // .subscribe(
+            //     null,
+            //     (error: AppError) => {
+            //         /*Rollback in case of error*/
+            //         this.posts.splice(index, 0, post);
+            //
+            //         if (error instanceof NotFoundError) {
+            //             alert('This post has already been deleted.');
+            //         } else {
+            //             throw error;
+            //         }
+            //     })
+        ;
     }
 
     ngOnInit() {
         this.service.getAll()
-        /*"subscribe" method means - when result is ready we'll be notified*/
+        /**
+         * "subscribe" method means - when result is ready we'll be notified
+         * Observables are lazy - nothing happens until you subscribe them
+         * In other words, if we simply call delete method here,
+         * our service is not going to call our backend.
+         * @see angular5\src\assets\Observables_vs_Promises.png
+         */
             .subscribe(posts => this.posts = posts);
     }
 }
