@@ -23,9 +23,8 @@ export class PostsComponent implements OnInit {
 
         this.service.create(post)
             .subscribe(
-                response => {
-                    console.log(response.json());
-                    post['id'] = response.json().id;
+                newPost => {
+                    post['id'] = newPost.id;
                     this.posts.splice(0, 0, post);
                 },
                 (error: AppError) => {
@@ -41,8 +40,8 @@ export class PostsComponent implements OnInit {
         /*Use patch to update only a few of the properties*/
         this.service.update(post)
             .subscribe(
-                response => {
-                    console.log(response.json());
+                updatedPost => {
+                    console.log(updatedPost);
                 });
 
     }
@@ -51,8 +50,7 @@ export class PostsComponent implements OnInit {
         this.service.delete(post.id)
         /*this.service.delete(345)*/
             .subscribe(
-                response => {
-                    console.log(response.json());
+                () => {
                     let index = this.posts.lastIndexOf(post);
                     this.posts.splice(index, 1);
                 },
@@ -67,11 +65,7 @@ export class PostsComponent implements OnInit {
 
     ngOnInit() {
         this.service.getAll()
-        //"subscribe" method means - when result is ready we'll be notified
-            .subscribe(
-                response => {
-                    console.log(response.json());
-                    this.posts = response.json();
-                });
+        /*"subscribe" method means - when result is ready we'll be notified*/
+            .subscribe(posts => this.posts = posts);
     }
 }
