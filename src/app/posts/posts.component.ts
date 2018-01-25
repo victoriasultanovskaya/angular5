@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PostService} from "../services/post/post.service";
-import {AppError} from "../common/app-error";
-import {NotFoundError} from "../common/not-found-error";
-import {BadRequestError} from "../common/bad-request-error";
+import {AppError} from "../common/errors/app-error";
+import {NotFoundError} from "../common/errors/not-found-error";
+import {BadRequestError} from "../common/errors/bad-request-error";
 
 @Component({
     selector: 'posts',
@@ -14,10 +14,7 @@ import {BadRequestError} from "../common/bad-request-error";
 export class PostsComponent implements OnInit {
     posts: any;
 
-
-    constructor(private service: PostService) {
-
-    }
+    constructor(private service: PostService) {}
 
     createPost(input: HTMLInputElement) {
         let post = {title: input.value};
@@ -34,8 +31,7 @@ export class PostsComponent implements OnInit {
                     if (error instanceof BadRequestError) {
                         //this.form.setErrors(error.json());
                     } else {
-                        alert('An unexpected error occurred');
-                        console.log(error);
+                        throw error;
                     }
                 });
     }
@@ -46,10 +42,6 @@ export class PostsComponent implements OnInit {
             .subscribe(
                 response => {
                     console.log(response.json());
-                },
-                error => {
-                    alert('An unexpected error occurred');
-                    console.log(error);
                 });
 
     }
@@ -66,8 +58,7 @@ export class PostsComponent implements OnInit {
                     if (error instanceof NotFoundError) {
                         alert('This post has already been deleted.');
                     } else {
-                        alert('An unexpected error occurred');
-                        console.log(error);
+                        throw error;
                     }
                 });
     }
@@ -79,10 +70,6 @@ export class PostsComponent implements OnInit {
                 response => {
                     console.log(response.json());
                     this.posts = response.json();
-                },
-                error => {
-                    alert('An unexpected error occurred');
-                    console.log(error);
                 });
     }
 }

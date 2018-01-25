@@ -3,14 +3,14 @@ import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
-import {AppError} from "../../common/app-error";
-import {NotFoundError} from "../../common/not-found-error";
-import {BadRequestError} from "../../common/bad-request-error";
+import {AppError} from '../../common/errors/app-error';
+import {NotFoundError} from '../../common/errors/not-found-error';
+import {BadRequestError} from '../../common/errors/bad-request-error';
 
 @Injectable()
 export class PostService {
 
-    private url = 'https://jsonplaceholder.typicode.com/posts';
+    private url = 'https://jsonplaceholder.typicode.com/posts_badurl';
 
     constructor(private http: Http) {
     }
