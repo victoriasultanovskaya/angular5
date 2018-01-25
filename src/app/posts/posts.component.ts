@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {PostService} from "../services/post/post.service";
-import {AppError} from "../common/errors/app-error";
-import {NotFoundError} from "../common/errors/not-found-error";
-import {BadRequestError} from "../common/errors/bad-request-error";
+import {PostService} from '../services/post/post.service';
+import {AppError} from '../common/errors/app-error';
+import {NotFoundError} from '../common/errors/not-found-error';
+import {BadRequestError} from '../common/errors/bad-request-error';
 
 @Component({
     selector: 'posts',
@@ -14,13 +14,14 @@ import {BadRequestError} from "../common/errors/bad-request-error";
 export class PostsComponent implements OnInit {
     posts: any;
 
-    constructor(private service: PostService) {}
+    constructor(private service: PostService) {
+    }
 
     createPost(input: HTMLInputElement) {
-        let post = {title: input.value};
+        const post = {title: input.value};
         input.value = '';
 
-        this.service.createPost(post)
+        this.service.create(post)
             .subscribe(
                 response => {
                     console.log(response.json());
@@ -29,7 +30,7 @@ export class PostsComponent implements OnInit {
                 },
                 (error: AppError) => {
                     if (error instanceof BadRequestError) {
-                        //this.form.setErrors(error.json());
+                        /*this.form.setErrors(error.json());*/
                     } else {
                         throw error;
                     }
@@ -37,8 +38,8 @@ export class PostsComponent implements OnInit {
     }
 
     updatePost(post) {
-        //Use patch to update only a few of the properties
-        this.service.updatePost(post)
+        /*Use patch to update only a few of the properties*/
+        this.service.update(post)
             .subscribe(
                 response => {
                     console.log(response.json());
@@ -47,7 +48,8 @@ export class PostsComponent implements OnInit {
     }
 
     deletePost(post) {
-        this.service.deletePost(post)
+        this.service.delete(post.id)
+        /*this.service.delete(345)*/
             .subscribe(
                 response => {
                     console.log(response.json());
@@ -64,7 +66,7 @@ export class PostsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.service.getPosts()
+        this.service.getAll()
         //"subscribe" method means - when result is ready we'll be notified
             .subscribe(
                 response => {
