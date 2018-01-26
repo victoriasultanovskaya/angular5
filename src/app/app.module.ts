@@ -104,22 +104,21 @@ import {MockBackend} from "@angular/http/testing";
                 component: BlogComponent
             },
             {
-                path: '**',
-                component: NotFoundComponent
+                path: 'login',
+                component: LoginComponent
             },
             {
                 path: 'admin',
                 component: AdminComponent
             },
             {
-                path: 'login',
-                component: LoginComponent
-            },
-            {
                 path: 'no-access',
                 component: NoAccessComponent
+            },
+            {
+                path: '**',
+                component: NotFoundComponent
             }
-
         ])
     ],
     providers: [

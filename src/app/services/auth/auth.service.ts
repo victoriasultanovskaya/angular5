@@ -12,7 +12,14 @@ export class AuthService {
             .post('/api/authenticate', JSON.stringify(credentials))
             .map(
                 response => {
-                    console.log(response.json());
+                    let result = response.json();
+                    console.log(result);
+                    if (result && result.token) {
+                        localStorage.setItem('token', result.token);
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
             );
     }
