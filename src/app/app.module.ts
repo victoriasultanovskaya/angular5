@@ -21,7 +21,7 @@ import {NewCourseFormComponent} from './new-course-form/new-course-form.componen
 import {SignupFormComponent} from './signup-form/signup-form.component';
 import {CourseTopicComponent} from './course-topic/course-topic.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
-import {HttpModule} from '@angular/http';
+import {BaseRequestOptions, HttpModule} from '@angular/http';
 import {PostsComponent} from './posts/posts.component';
 import {PostService} from './services/post/post.service';
 import {AppErrorHandler} from './common/errors/app-error-handler';
@@ -31,8 +31,15 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {HomeComponent} from "./home/home.component";
 import {GithubProfileComponent} from "./github-profile/github-profile.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
-import { BlogComponent } from './blog/blog.component';
-import { BlogPostComponent } from './blog-post/blog-post.component';
+import {BlogComponent} from './blog/blog.component';
+import {BlogPostComponent} from './blog-post/blog-post.component';
+import {AdminComponent} from "./admin/admin.component";
+import {LoginComponent} from "./login/login.component";
+import {NoAccessComponent} from "./no-access/no-access.component";
+import {OrderService} from "./services/order/order.service";
+import {AuthService} from "./services/auth/auth.service";
+import {fakeBackendProvider} from "./helpers/fake-backend";
+import {MockBackend} from "@angular/http/testing";
 
 
 @NgModule({
@@ -60,7 +67,11 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
         HomeComponent,
         NotFoundComponent,
         BlogComponent,
-        BlogPostComponent
+        BlogPostComponent,
+
+        AdminComponent,
+        LoginComponent,
+        NoAccessComponent
     ],
     imports: [
         BrowserModule,
@@ -95,7 +106,11 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
             {
                 path: '**',
                 component: NotFoundComponent
-            }
+            },
+            {path: 'admin', component: AdminComponent},
+            {path: 'login', component: LoginComponent},
+            {path: 'no-access', component: NoAccessComponent}
+
         ])
     ],
     providers: [
@@ -103,6 +118,13 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
         AuthorsService,
         PostService,
         GithubFollowersService,
+
+        OrderService,
+        AuthService,
+        fakeBackendProvider,
+        MockBackend,
+        BaseRequestOptions,
+
         //means "Instead of ErrorHandler use class AppErrorHandler"
         {provide: ErrorHandler, useClass: AppErrorHandler}
     ],
