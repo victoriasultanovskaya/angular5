@@ -9,16 +9,17 @@ import {ActivatedRoute} from "@angular/router";
 export class GithubProfileComponent implements OnInit {
 
     constructor(private route: ActivatedRoute) {
-        this.route.paramMap
-            .subscribe(params => {
-                console.log(params);
-                /*Plus before string converts string to number*/
-                let userId = +params.get('userId');
-                console.log(userId);
-            });
     }
 
     ngOnInit() {
+        console.log('GithubProfileComponent OnInit');
+        this.route.paramMap
+            .subscribe(
+                params => {
+                    /*Plus before string converts string to number*/
+                    let userId = +params.get('userId');
+                    console.log(userId);
+                });
     }
 
 }
