@@ -20,6 +20,13 @@ export class GithubProfileComponent implements OnInit {
                     let userId = +params.get('userId');
                     console.log(userId);
                 });
+
+        /**
+         * Use this.route.snapshot if you sure that component will not be reinited
+         * So snapshot cannot be used in case of pagination on listing for example
+         */
+        let id = this.route.snapshot.paramMap.get('userId');
+        console.log(id);
     }
 
 }
