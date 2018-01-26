@@ -31,6 +31,8 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {HomeComponent} from "./home/home.component";
 import {GithubProfileComponent} from "./github-profile/github-profile.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import { BlogComponent } from './blog/blog.component';
+import { BlogPostComponent } from './blog-post/blog-post.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import {NotFoundComponent} from "./not-found/not-found.component";
         GithubProfileComponent,
         NavbarComponent,
         HomeComponent,
-        NotFoundComponent
+        NotFoundComponent,
+        BlogComponent,
+        BlogPostComponent
     ],
     imports: [
         BrowserModule,
@@ -79,6 +83,14 @@ import {NotFoundComponent} from "./not-found/not-found.component";
             {
                 path: 'posts',
                 component: PostsComponent
+            },
+            {
+                path: 'blog/:year/:month',
+                component: BlogPostComponent
+            },
+            {
+                path: 'blog',
+                component: BlogComponent
             },
             {
                 path: '**',
