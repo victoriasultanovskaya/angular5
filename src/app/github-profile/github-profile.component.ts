@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'app-github-profile',
@@ -8,25 +8,15 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class GithubProfileComponent implements OnInit {
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private router: Router) {
     }
 
     ngOnInit() {
-        console.log('GithubProfileComponent OnInit');
-        this.route.paramMap
-            .subscribe(
-                params => {
-                    /*Plus before string converts string to number*/
-                    let userId = +params.get('userId');
-                    console.log(userId);
-                });
-
-        /**
-         * Use this.route.snapshot if you sure that component will not be reinited
-         * So snapshot cannot be used in case of pagination on listing for example
-         */
-        let id = this.route.snapshot.paramMap.get('userId');
-        console.log(id);
     }
 
+    submit() {
+        this.router.navigate(['/followers'], {
+            queryParams: {page: 1, order: 'newest'}
+        });
+    }
 }
