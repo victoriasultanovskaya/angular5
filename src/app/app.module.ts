@@ -40,6 +40,7 @@ import {OrderService} from "./services/order/order.service";
 import {AuthService} from "./services/auth/auth.service";
 import {fakeBackendProvider} from "./helpers/fake-backend";
 import {MockBackend} from "@angular/http/testing";
+import {AuthGuardService} from "./services/auth/auth-guard.service";
 
 
 @NgModule({
@@ -109,7 +110,8 @@ import {MockBackend} from "@angular/http/testing";
             },
             {
                 path: 'admin',
-                component: AdminComponent
+                component: AdminComponent,
+                canActivate: [AuthGuardService]
             },
             {
                 path: 'no-access',
@@ -132,6 +134,7 @@ import {MockBackend} from "@angular/http/testing";
         fakeBackendProvider,
         MockBackend,
         BaseRequestOptions,
+        AuthGuardService,
 
         //means "Instead of ErrorHandler use class AppErrorHandler"
         {provide: ErrorHandler, useClass: AppErrorHandler}
