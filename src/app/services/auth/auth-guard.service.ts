@@ -1,3 +1,4 @@
+///<reference path="../../../../node_modules/@angular/router/src/router.d.ts"/>
 import {Injectable} from '@angular/core';
 import {CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {AuthService} from './auth.service';
@@ -17,13 +18,7 @@ export class AuthGuardService implements CanActivate {
         if (this.authService.isLoggedIn()) {
             return true;
         }
-        this.router.navigate(
-            ['/login'],
-            {
-                queryParams: {
-                    returnUrl: state.url
-                }
-            });
+        this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
         return false;
     }
 
