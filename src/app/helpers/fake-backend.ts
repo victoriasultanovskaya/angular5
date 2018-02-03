@@ -17,7 +17,7 @@ export function fakeBackendFactory(backend: MockBackend,
         "admin": true
      }
      */
-    //let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA';
+    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6Ik1vc2ggSGFtZWRhbmkiLCJhZG1pbiI6dHJ1ZX0.iy8az1ZDe-_hS8GLDKsQKgPHvWpHl0zkQBqy1QIPOkA';
 
     /**
      {
@@ -26,7 +26,7 @@ export function fakeBackendFactory(backend: MockBackend,
         "admin": false
      }
      */
-    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOmZhbHNlfQ.uI_rNanTsZ_wFa1VnICzq2txKeYPArda5QLdVeQYFGI';
+    //let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOmZhbHNlfQ.uI_rNanTsZ_wFa1VnICzq2txKeYPArda5QLdVeQYFGI';
     backend.connections.subscribe((connection: MockConnection) => {
         // We are using the setTimeout() function to simulate an
         // asynchronous call to the server that takes 1 second.

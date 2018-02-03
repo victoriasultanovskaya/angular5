@@ -1,18 +1,23 @@
-import { OrderService } from '../services/order/order.service';
-import { Component, OnInit } from '@angular/core';
+import {OrderService} from '../services/order/order.service';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+    selector: 'app-admin',
+    templateUrl: './admin.component.html',
+    styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  orders: any[];
+    orders: any[];
 
-  constructor(private orderService: OrderService) { }
+    constructor(private orderService: OrderService) {
+    }
 
-  ngOnInit() {
-    this.orderService.getOrders()
-      .subscribe(orders => this.orders = orders);
-  }
+    ngOnInit() {
+        this.orderService.getOrders()
+            .subscribe(
+                orders => {
+                    this.orders = orders;
+                }
+            );
+    }
 }
