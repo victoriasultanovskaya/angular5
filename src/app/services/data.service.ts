@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {NotFoundError} from '../common/errors/not-found-error';
 import {BadRequestError} from '../common/errors/bad-request-error';
 import {AppError} from '../common/errors/app-error';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -12,7 +12,8 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class DataService {
 
-    constructor(private url: string, private http: HttpClient) { }
+    constructor(private url: string, private http: HttpClient) {
+    }
 
     getAll() {
         return this.http.get(this.url)
@@ -33,7 +34,7 @@ export class DataService {
     }
 
     update(resource) {
-        return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true }))
+        return this.http.patch(this.url + '/' + resource.id, JSON.stringify({isRead: true}))
             .map(response => response)
             .catch(this.handleError);
     }
