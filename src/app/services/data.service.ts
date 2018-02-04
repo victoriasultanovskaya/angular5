@@ -1,8 +1,8 @@
+import { Injectable } from '@angular/core';
 import {NotFoundError} from '../common/errors/not-found-error';
 import {BadRequestError} from '../common/errors/bad-request-error';
 import {AppError} from '../common/errors/app-error';
 import { HttpClient } from '@angular/common/http';
-import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -11,6 +11,7 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class DataService {
+
     constructor(private url: string, private http: HttpClient) { }
 
     getAll() {
@@ -55,4 +56,5 @@ export class DataService {
 
         return Observable.throw(new AppError(error));
     }
+
 }

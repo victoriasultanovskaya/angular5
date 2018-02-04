@@ -33,6 +33,7 @@ import {GithubProfileComponent} from './github-profile/github-profile.component'
 import {NotFoundComponent} from './not-found/not-found.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
+import {DataService} from "./services/data.service";
 
 
 @NgModule({
@@ -99,6 +100,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
         ])
     ],
     providers: [
+        DataService,
         CoursesService,
         AuthorsService,
         PostService,
