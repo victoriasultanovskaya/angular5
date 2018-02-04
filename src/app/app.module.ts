@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ErrorHandler, NgModule} from '@angular/core';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {CoursesComponent} from './courses.component';
@@ -26,11 +26,11 @@ import {PostsComponent} from './posts/posts.component';
 import {PostService} from './services/post/post.service';
 import {AppErrorHandler} from './common/errors/app-error-handler';
 import {GithubFollowersComponent} from './github-followers/github-followers.component';
-import {GithubFollowersService} from "./services/github-followers/github-followers.service";
-import {NavbarComponent} from "./navbar/navbar.component";
-import {HomeComponent} from "./home/home.component";
-import {GithubProfileComponent} from "./github-profile/github-profile.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
+import {GithubFollowersService} from './services/github-followers/github-followers.service';
+import {NavbarComponent} from './navbar/navbar.component';
+import {HomeComponent} from './home/home.component';
+import {GithubProfileComponent} from './github-profile/github-profile.component';
+import {NotFoundComponent} from './not-found/not-found.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 
