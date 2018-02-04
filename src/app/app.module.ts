@@ -21,7 +21,7 @@ import {NewCourseFormComponent} from './new-course-form/new-course-form.componen
 import {SignupFormComponent} from './signup-form/signup-form.component';
 import {CourseTopicComponent} from './course-topic/course-topic.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
-import {HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import {PostsComponent} from './posts/posts.component';
 import {PostService} from './services/post/post.service';
 import {AppErrorHandler} from './common/errors/app-error-handler';
@@ -66,7 +66,7 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpModule,
+        HttpClientModule,
         RouterModule.forRoot([
             {
                 path: '',
