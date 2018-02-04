@@ -1,5 +1,5 @@
 import {Directive, ElementRef, HostListener} from '@angular/core';
-import {Input} from "@angular/core";
+import {Input} from '@angular/core';
 
 @Directive({
     selector: '[appInputFormat]'
@@ -15,7 +15,7 @@ export class InputFormatDirective {
     }
 
     @HostListener('blur') onBlur() {
-        let value: string = this.el.nativeElement.value;
+        const value: string = this.el.nativeElement.value;
 
         if (this.format === 'lowercase') {
             this.el.nativeElement.value = value.toLowerCase();

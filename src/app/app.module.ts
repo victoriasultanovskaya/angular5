@@ -103,7 +103,6 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
         AuthorsService,
         PostService,
         GithubFollowersService,
-        //means "Instead of ErrorHandler use class AppErrorHandler"
         {provide: ErrorHandler, useClass: AppErrorHandler}
     ],
     bootstrap: [AppComponent]

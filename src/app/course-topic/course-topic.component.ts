@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
-    selector: 'course-topic',
+    selector: 'app-course-topic',
     templateUrl: './course-topic.component.html',
     styleUrls: ['./course-topic.component.css']
 })

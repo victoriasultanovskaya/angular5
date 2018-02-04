@@ -5,7 +5,7 @@ import {NotFoundError} from '../common/errors/not-found-error';
 import {BadRequestError} from '../common/errors/bad-request-error';
 
 @Component({
-    selector: 'posts',
+    selector: 'app-posts',
     templateUrl: './posts.component.html',
     styleUrls: ['./posts.component.css']
 })
@@ -18,7 +18,7 @@ export class PostsComponent implements OnInit {
     }
 
     createPost(input: HTMLInputElement) {
-        let post = {title: input.value};
+        const post = {title: input.value};
         /* Optimistic update - first update User Interface then push updates to server and wait for the response :-) */
         this.posts.splice(0, 0, post);
 
@@ -55,7 +55,7 @@ export class PostsComponent implements OnInit {
 
     deletePost(post) {
         /*Optimistic update*/
-        let index = this.posts.indexOf(post);
+        const index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
         /*--Optimistic update*/
 

@@ -45,11 +45,13 @@ export class DataService {
     }
 
     private handleError(error: Response) {
-        if (error.status === 400)
+        if (error.status === 400) {
             return Observable.throw(new BadRequestError(error.json()));
+        }
 
-        if (error.status === 404)
+        if (error.status === 404) {
             return Observable.throw(new NotFoundError());
+        }
 
         return Observable.throw(new AppError(error));
     }

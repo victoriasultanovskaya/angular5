@@ -1,4 +1,4 @@
-import {AbstractControl, ValidationErrors, AsyncValidatorFn } from "@angular/forms";
+import {AbstractControl, ValidationErrors, AsyncValidatorFn } from '@angular/forms';
 
 export class UsernameValidators {
 

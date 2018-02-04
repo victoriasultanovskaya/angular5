@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthorsService} from "../authors.service";
+import {AuthorsService} from '../authors.service';
 
 @Component({
     selector: 'app-authors',
@@ -7,7 +7,7 @@ import {AuthorsService} from "../authors.service";
     styleUrls: ['./authors.component.css']
 })
 export class AuthorsComponent implements OnInit {
-    title = "Authors";
+    title = 'Authors';
     authors;
 
     constructor(service: AuthorsService) {
