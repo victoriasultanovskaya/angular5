@@ -25,7 +25,8 @@ export class DataService {
     }
 
     create(resource) {
-        //return Observable.throw(new AppError()); /* Simulate error */
+        /* Simulate error */
+        /* return Observable.throw(new AppError())*/
         return this.http.post(this.url, JSON.stringify(resource))
             .map(response => response.json())
             .catch(this.handleError);
@@ -39,11 +40,12 @@ export class DataService {
     }
 
     delete(id) {
-        //return Observable.throw(new AppError()); /* Simulate error */
+        /* Simulate error */
+        /* return Observable.throw(new AppError())*/
         return this.http.delete(this.url + '/' + id)
             .map(response => response.json())
             .toPromise()
-            //.retry(3)
+            /* .retry(3) */
             .catch(this.handleError);
     }
 
