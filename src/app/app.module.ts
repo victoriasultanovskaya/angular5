@@ -33,7 +33,9 @@ import {GithubProfileComponent} from './github-profile/github-profile.component'
 import {NotFoundComponent} from './not-found/not-found.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
-import {DataService} from "./services/data.service";
+import {DataService} from './services/data.service';
+import {TodosComponent} from './todos/todos.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -61,13 +63,16 @@ import {DataService} from "./services/data.service";
         HomeComponent,
         NotFoundComponent,
         BlogComponent,
-        BlogPostComponent
+        BlogPostComponent,
+        TodosComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         RouterModule.forRoot([
             {
                 path: '',
