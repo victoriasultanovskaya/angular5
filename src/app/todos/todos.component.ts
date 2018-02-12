@@ -1,4 +1,4 @@
-import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import {trigger, style, transition, animate, keyframes, query, stagger, state} from '@angular/animations';
 import {Component} from '@angular/core';
 
 @Component({
@@ -7,14 +7,13 @@ import {Component} from '@angular/core';
     styleUrls: ['./todos.component.css'],
     animations: [
         trigger('fadeIn', [
-            //state(),
+            state('void', style({opacity: 0})),
             transition('void => *', [
-                style({backgroundColor: 'yellow', opacity: 0}),
+                style({backgroundColor: 'yellow'}),
                 animate(2000)
             ]),
             transition('* => void', [
-                animate(2000),
-                style({opacity: 0})
+                animate(2000)
             ])
         ])
     ]
