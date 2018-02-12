@@ -8,11 +8,8 @@ import {Component} from '@angular/core';
     animations: [
         trigger('fadeIn', [
             state('void', style({opacity: 0})),
-            transition('void => *', [
+            transition(':enter, :leave', [
                 style({backgroundColor: 'yellow'}),
-                animate(2000)
-            ]),
-            transition('* => void', [
                 animate(2000)
             ])
         ])
