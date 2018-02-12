@@ -35,7 +35,7 @@ import { BlogComponent } from './blog/blog.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import {DataService} from './services/data.service';
 import {TodosComponent} from './todos/todos.component';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -72,7 +72,6 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        NoopAnimationsModule,
         RouterModule.forRoot([
             {
                 path: '',

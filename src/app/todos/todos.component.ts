@@ -1,17 +1,4 @@
-import {
-    trigger,
-    transition,
-    state,
-    animate,
-    style,
-    keyframes,
-    useAnimation,
-    query,
-    animateChild,
-    group,
-    stagger
-} from '@angular/animations';
-import {fade, slide, bounceOutLeftAnimation, fadeInAnimation} from './../animations';
+import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
 import {Component} from '@angular/core';
 
 @Component({
@@ -19,32 +6,13 @@ import {Component} from '@angular/core';
     templateUrl: './todos.component.html',
     styleUrls: ['./todos.component.css'],
     animations: [
-        trigger('todosAnimation', [
-            transition(':enter', [
-                group([
-                    query('h1', [
-                        style({transform: 'translateY(-20px)'}),
-                        animate(1000)
-                    ]),
-                    query('@todoAnimation',
-                        stagger(200, animateChild()))
-                ])
+        trigger('fadeIn', [
+            //state(),
+            transition('void => *', [
+                style({backgroundColor: 'yellow', opacity: 0}),
+                animate(2000)
             ])
-        ]),
 
-        trigger('todoAnimation', [
-            transition(':enter', [
-                useAnimation(fadeInAnimation, {
-                    params: {
-                        duration: '2s'
-                    }
-                })
-            ]),
-            transition(':leave', [
-                style({backgroundColor: '#ef5350'}),
-                animate(500),
-                useAnimation(bounceOutLeftAnimation)
-            ]),
         ])
     ]
 })
