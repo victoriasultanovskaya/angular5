@@ -1,13 +1,13 @@
-import {trigger, style, transition, animate, keyframes, query, stagger, state} from '@angular/animations';
 import {Component} from '@angular/core';
-import {fade} from '../animations';
+import {fade, slideLeftToRight} from '../animations';
 
 @Component({
     selector: 'todos',
     templateUrl: './todos.component.html',
     styleUrls: ['./todos.component.css'],
     animations: [
-        fade
+        fade,
+        slideLeftToRight
     ]
 })
 export class TodosComponent {
