@@ -11,12 +11,31 @@ let bounceOutLeftAnimation = animation(
     )
 );
 
-export let fade = trigger('fade', [
+let fadeInAnimation = animation([
+        style({opacity: 0}),
+        animate('{{ duration }} {{ easing }}')
+    ], {
+        params: {
+            duration: '2s',
+            easing: 'ease-out'
+        }
+    }
+);
 
-    state('void', style({opacity: 0})),
-    transition(':enter, :leave', [
-        style({backgroundColor: 'yellow'}),
-        animate(2000)
+let fadeOutAnimation = animation([
+    animate(2000, style({opacity: 0}))
+]);
+
+export let fade = trigger('fade', [
+    transition(':enter',
+        useAnimation(fadeInAnimation, {
+            params: {
+                duration: '5s'
+            }
+        })
+    ),
+    transition(':leave', [
+        useAnimation(fadeOutAnimation)
     ])
 ]);
 
