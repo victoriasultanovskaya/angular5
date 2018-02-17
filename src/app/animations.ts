@@ -18,6 +18,13 @@ export let slideLeftToRight = trigger('slideLeftToRight', [
         animate('0.5s 0s cubic-bezier(.06,.99,.89,.06)')
     ]),
     transition(':leave', [
-        animate('0.5s 1s ease-in', style({transform: 'translateX(-100%)'}))
+        animate(
+            '0.5s 1s ease-in',
+            // https://github.com/daneden/animate.css/blob/master/source/bouncing_exits/bounceOutLeft.css
+            keyframes([
+                style({offset: 0.2, opacity: 1, transform: 'translate3d(20px, 0, 0)'}),
+                style({offset: 1, opacity: 0, transform: 'translate3d(-2000px, 0, 0)'})
+            ])
+        )
     ])
 ]);
