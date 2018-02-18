@@ -1,4 +1,4 @@
-import {trigger, transition, state, animate, animation, style, keyframes, query, useAnimation} from '@angular/animations';
+import {trigger, transition, state, animate, animation, style, keyframes, query, useAnimation, animateChild} from '@angular/animations';
 
 let bounceOutLeftAnimation = animation(
     animate(
@@ -51,8 +51,7 @@ export let slideLeftToRight = trigger('slideLeftToRight', [
 
 export let todoAnimation = trigger('todoAnimation', [
     transition(':enter', [
-        style({opacity: 0}),
-        animate(2000)
+        useAnimation(fadeInAnimation)
     ]),
     transition(':leave', [
         style({backgroundColor: 'red'}),
@@ -66,6 +65,9 @@ export let todosAnimation = trigger('todosAnimation', [
         query('h1', [
             style({transform: 'translateY(-20px)'}),
             animate(1000)
-        ])
+        ]),
+        query('@todoAnimation',
+            animateChild()
+        ),
     ])
 ]);
