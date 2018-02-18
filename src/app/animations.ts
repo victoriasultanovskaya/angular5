@@ -65,15 +65,14 @@ export let todoAnimation = trigger('todoAnimation', [
 
 export let todosAnimation = trigger('todosAnimation', [
     transition(':enter', [
+        //Running Parallel Animations
         group([
-            query('h1', [
-                style({transform: 'translateY(-20px)'}),
-                animate(1000)
-            ]),
-            query('@todoAnimation',
-                animateChild()
-            ),
+            animate(1000, style({background: 'red'})),
+            animate(2000, style({transform: 'translateY(50px)'}))
         ])
+        //Running in sequence Animations
+        //animate(1000, style({background: 'red'})),
+        //animate(2000, style({transform: 'translateY(50px)'}))
 
     ])
 ]);
