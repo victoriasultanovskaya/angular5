@@ -1,6 +1,6 @@
 import {
     trigger, transition, state, animate, animation, style, keyframes, query, useAnimation, animateChild,
-    group
+    group, stagger
 } from '@angular/animations';
 
 let bounceOutLeftAnimation = animation(
@@ -57,7 +57,7 @@ export let todoAnimation = trigger('todoAnimation', [
         useAnimation(fadeInAnimation)
     ]),
     transition(':leave', [
-        style({backgroundColor: 'red'}),
+        style({backgroundColor: 'lightblue'}),
         animate(2000),
         useAnimation(bounceOutLeftAnimation)
     ])
@@ -65,14 +65,16 @@ export let todoAnimation = trigger('todoAnimation', [
 
 export let todosAnimation = trigger('todosAnimation', [
     transition(':enter', [
-        //Running Parallel Animations
         group([
-            animate(1000, style({background: 'red'})),
-            animate(2000, style({transform: 'translateY(50px)'}))
+            query('h1', [
+                style({transform: 'translateY(-20px)'}),
+                animate(1000)
+            ]),
+            //query('@todoAnimation', animateChild()),
+            query('@todoAnimation',
+                stagger(1000, animateChild())
+            ),
         ])
-        //Running in sequence Animations
-        //animate(1000, style({background: 'red'})),
-        //animate(2000, style({transform: 'translateY(50px)'}))
 
     ])
 ]);
