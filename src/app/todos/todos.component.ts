@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {fade, slideLeftToRight, todoAnimation} from '../animations';
+import {fade, slideLeftToRight, todoAnimation, todosAnimation} from '../animations';
 
 @Component({
     selector: 'todos',
@@ -8,7 +8,8 @@ import {fade, slideLeftToRight, todoAnimation} from '../animations';
     animations: [
         fade,
         slideLeftToRight,
-        todoAnimation
+        todoAnimation,
+        todosAnimation
     ]
 })
 export class TodosComponent {
