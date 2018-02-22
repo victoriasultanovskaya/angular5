@@ -36,6 +36,8 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 import {DataService} from './services/data.service';
 import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 
 @NgModule({
@@ -72,6 +74,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         ReactiveFormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
+        NoopAnimationsModule,
+        MatButtonModule,
+        MatCheckboxModule,
         RouterModule.forRoot([
             {
                 path: '',
@@ -103,6 +108,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
             }
         ])
     ],
+    exports: [MatButtonModule, MatCheckboxModule],
     providers: [
         DataService,
         CoursesService,
