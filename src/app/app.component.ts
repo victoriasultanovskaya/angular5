@@ -15,10 +15,5 @@ export class AppComponent {
         // }
         assignee: null
     };
-    isChecked = true;
-
-    onChange($event) {
-        console.log($event);
-    }
 }
 

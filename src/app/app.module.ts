@@ -38,6 +38,7 @@ import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
         NotFoundComponent,
         BlogComponent,
         BlogPostComponent,
-        TodosComponent
+        TodosComponent,
+        AngularMaterialComponent
     ],
     imports: [
         BrowserModule,
