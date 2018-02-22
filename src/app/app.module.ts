@@ -37,7 +37,7 @@ import {DataService} from './services/data.service';
 import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatRadioModule} from '@angular/material';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
 
@@ -79,6 +79,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
         NoopAnimationsModule,
         MatButtonModule,
         MatCheckboxModule,
+        MatRadioModule,
         RouterModule.forRoot([
             {
                 path: '',
@@ -110,7 +111,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
             }
         ])
     ],
-    exports: [MatButtonModule, MatCheckboxModule],
+    exports: [MatButtonModule, MatCheckboxModule, MatRadioModule],
     providers: [
         DataService,
         CoursesService,

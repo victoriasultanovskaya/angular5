@@ -19,4 +19,13 @@ export class AngularMaterialComponent {
         console.log($event);
     }
 
+    favoriteSeason: string;
+
+    seasons = [
+        'Winter',
+        'Spring',
+        'Summer',
+        'Autumn',
+    ];
+
 }
