@@ -114,4 +114,30 @@
     </div>
   </div>
 
+    <!--DatePicker-->
+    <div class="card text-white bg-success mb-3  col-md-5">
+        <div class="card-body">
+            <h5 class="card-title">DatePicker</h5>
+            <div>
+                <div class="col-md-12">
+                    <mat-form-field>
+                        <input
+                                matInput
+                                [matDatepicker]="picker"
+                                [min]="minDate"
+                                [max]="maxDate"
+                                (focus)="picker.open()"
+                                placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <a href="https://material.angular.io/components/input/overview"
+                   class="btn btn-primary" target="__blank">Info</a>
+            </div>
+        </div>
+    </div>
+
 </div>

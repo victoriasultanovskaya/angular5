@@ -36,4 +36,7 @@ export class AngularMaterialComponent {
     ];
 
 
+    // https://github.com/angular/material2/issues/4978
+    minDate = new Date(2017, 2, 20);
+    maxDate = new Date(2018, 12, 20);
 }
