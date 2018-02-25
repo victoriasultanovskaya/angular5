@@ -28,4 +28,11 @@ export class AngularMaterialComponent {
         'Autumn',
     ];
 
+    favoriteFood = 'pizza-1';
+    foods = [
+        {value: 'steak-0', viewValue: 'Steak'},
+        {value: 'pizza-1', viewValue: 'Pizza'},
+        {value: 'tacos-2', viewValue: 'Tacos'}
+    ];
+
 }

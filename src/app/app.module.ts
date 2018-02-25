@@ -38,6 +38,7 @@ import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatRadioModule} from '@angular/material';
+import {MatSelectModule} from '@angular/material/select';
 import { AngularMaterialComponent } from './angular-material/angular-material.component';
 
 
@@ -80,6 +81,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
         MatButtonModule,
         MatCheckboxModule,
         MatRadioModule,
+        MatSelectModule,
         RouterModule.forRoot([
             {
                 path: '',
@@ -106,12 +108,16 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
                 component: BlogComponent
             },
             {
+                path: 'angular-material',
+                component: AngularMaterialComponent
+            },
+            {
                 path: '**',
                 component: NotFoundComponent
             }
         ])
     ],
-    exports: [MatButtonModule, MatCheckboxModule, MatRadioModule],
+    exports: [MatButtonModule, MatCheckboxModule, MatRadioModule, MatSelectModule],
     providers: [
         DataService,
         CoursesService,
