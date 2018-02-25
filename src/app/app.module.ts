@@ -21,7 +21,7 @@ import {NewCourseFormComponent} from './new-course-form/new-course-form.componen
 import {SignupFormComponent} from './signup-form/signup-form.component';
 import {CourseTopicComponent} from './course-topic/course-topic.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {PostsComponent} from './posts/posts.component';
 import {PostService} from './services/post/post.service';
 import {AppErrorHandler} from './common/errors/app-error-handler';
@@ -31,15 +31,16 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {HomeComponent} from './home/home.component';
 import {GithubProfileComponent} from './github-profile/github-profile.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import { BlogComponent } from './blog/blog.component';
-import { BlogPostComponent } from './blog-post/blog-post.component';
+import {BlogComponent} from './blog/blog.component';
+import {BlogPostComponent} from './blog-post/blog-post.component';
 import {DataService} from './services/data.service';
 import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatRadioModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
-import { AngularMaterialComponent } from './angular-material/angular-material.component';
+import {MatInputModule} from '@angular/material/input';
+import {AngularMaterialComponent} from './angular-material/angular-material.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
         MatCheckboxModule,
         MatRadioModule,
         MatSelectModule,
+        MatInputModule,
         RouterModule.forRoot([
             {
                 path: '',
@@ -117,7 +119,7 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
             }
         ])
     ],
-    exports: [MatButtonModule, MatCheckboxModule, MatRadioModule, MatSelectModule],
+    exports: [MatButtonModule, MatCheckboxModule, MatRadioModule, MatSelectModule, MatInputModule],
     providers: [
         DataService,
         CoursesService,

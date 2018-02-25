@@ -58,4 +58,38 @@
          class="btn btn-primary" target="__blank">Info</a>
     </div>
   </div>
+
+
+  <!--Input-->
+  <div class="card text-white bg-success mb-3  col-md-5">
+    <div class="card-body">
+      <h5 class="card-title">Input</h5>
+      <div>
+        <div class="col-md-12">
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput
+                     placeholder="Username"
+                     ngModel
+                     name="username"
+                     #username="ngModel"
+                     value=""
+                     required>
+              <mat-hint>Type a unique username.</mat-hint>
+              <span matPrefix>admin.</span>
+              <span matSuffix>@domain.com</span>
+              <mat-error *ngIf="username.invalid && username.errors.required">
+                This field is required!
+              </mat-error>
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <a href="https://material.angular.io/components/input/overview"
+           class="btn btn-primary" target="__blank">Info</a>
+      </div>
+    </div>
+  </div>
+
 </div>
