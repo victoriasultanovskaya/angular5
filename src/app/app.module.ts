@@ -42,6 +42,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AngularMaterialComponent} from './angular-material/angular-material.component';
+import { MaterialIconsComponent } from './material-icons/material-icons.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import {AngularMaterialComponent} from './angular-material/angular-material.comp
         BlogComponent,
         BlogPostComponent,
         TodosComponent,
-        AngularMaterialComponent
+        AngularMaterialComponent,
+        MaterialIconsComponent
     ],
     imports: [
         BrowserModule,
@@ -115,6 +117,10 @@ import {AngularMaterialComponent} from './angular-material/angular-material.comp
             {
                 path: 'angular-material',
                 component: AngularMaterialComponent
+            },
+            {
+                path: 'material-icons',
+                component: MaterialIconsComponent
             },
             {
                 path: '**',
