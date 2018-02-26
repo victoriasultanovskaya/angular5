@@ -1,16 +1,18 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ENTER, COMMA} from '@angular/cdk/keycodes';
 
 @Component({
-  selector: 'angular-material',
-  templateUrl: './angular-material.component.html',
-  styleUrls: ['./angular-material.component.css']
+    selector: 'angular-material',
+    templateUrl: './angular-material.component.html',
+    styleUrls: ['./angular-material.component.css']
 })
 export class AngularMaterialComponent {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 
     isChecked = true;
@@ -39,4 +41,53 @@ export class AngularMaterialComponent {
     // https://github.com/angular/material2/issues/4978
     minDate = new Date(2017, 2, 20);
     maxDate = new Date(2018, 12, 20);
+
+
+    color: string;
+
+    availableColors = [
+        {name: 'none', color: ''},
+        {name: 'Primary', color: 'primary'},
+        {name: 'Accent', color: 'accent'},
+        {name: 'Warn', color: 'warn'}
+    ];
+
+
+    visible: boolean = true;
+    selectable: boolean = true;
+    removable: boolean = true;
+    addOnBlur: boolean = true;
+
+    // Enter, comma
+    separatorKeysCodes = [ENTER, COMMA];
+
+    fruits = [
+        {name: 'Lemon'},
+        {name: 'Lime'},
+        {name: 'Apple'},
+    ];
+
+
+    add(event: MatChipInputEvent): void {
+        let input = event.input;
+        let value = event.value;
+
+        // Add our fruit
+        if ((value || '').trim()) {
+            this.fruits.push({name: value.trim()});
+        }
+
+        // Reset the input value
+        if (input) {
+            input.value = '';
+        }
+    }
+
+    remove(fruit: any): void {
+        let index = this.fruits.indexOf(fruit);
+
+        if (index >= 0) {
+            this.fruits.splice(index, 1);
+        }
+    }
 }

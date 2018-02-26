@@ -43,6 +43,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AngularMaterialComponent} from './angular-material/angular-material.component';
 import { MaterialIconsComponent } from './material-icons/material-icons.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { MaterialIconsComponent } from './material-icons/material-icons.componen
         MatInputModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatChipsModule,
         RouterModule.forRoot([
             {
                 path: '',

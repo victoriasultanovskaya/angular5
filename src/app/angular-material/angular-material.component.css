@@ -17,3 +17,11 @@
     border: 1px solid green;
     margin: 10px;
 }
+
+mat-chip {
+    max-width: 200px;
+}
+
+.demo-chip-list {
+    width: 100%;
+}
