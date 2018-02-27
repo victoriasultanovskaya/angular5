@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ENTER, COMMA} from '@angular/cdk/keycodes';
+import {MatChipInputEvent} from '@angular/material';
 
 @Component({
     selector: 'angular-material',
