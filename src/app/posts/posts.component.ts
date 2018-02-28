@@ -89,7 +89,6 @@ export class PostsComponent implements OnInit {
             .subscribe(posts => {
                 this.posts = posts;
                 this.isLoading = false;
-                console.log(this.isLoading);
             });
     }
 }
