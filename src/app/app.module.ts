@@ -37,7 +37,7 @@ import {DataService} from './services/data.service';
 import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatRadioModule, MatNativeDateModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatRadioModule, MatNativeDateModule, MatProgressSpinnerModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -91,6 +91,7 @@ import {MatChipsModule} from '@angular/material/chips';
         MatDatepickerModule,
         MatNativeDateModule,
         MatChipsModule,
+        MatProgressSpinnerModule,
         RouterModule.forRoot([
             {
                 path: '',

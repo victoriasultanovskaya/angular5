@@ -8,8 +8,16 @@ import {MatChipInputEvent} from '@angular/material';
     styleUrls: ['./angular-material.component.css']
 })
 export class AngularMaterialComponent {
+    progress = 0;
+    timer;
 
     constructor() {
+        this.timer = setInterval(() => {
+            this.progress++;
+            if (this.progress == 100) {
+                clearInterval(this.timer);
+            }
+        }, 20);
     }
 
     ngOnInit() {
@@ -91,4 +99,8 @@ export class AngularMaterialComponent {
             this.fruits.splice(index, 1);
         }
     }
+
+    spinnerColor = 'primary';
+    spinnerMode = 'determinate';
+    spinnerValue = 75;
 }

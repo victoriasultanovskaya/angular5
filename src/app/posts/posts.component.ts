@@ -13,6 +13,7 @@ import {BadRequestError} from '../common/errors/bad-request-error';
 // @see angular5\src\assets\HTTPRequests.png
 export class PostsComponent implements OnInit {
     posts: any;
+    isLoading = false;
 
     constructor(private service: PostService) {
     }
@@ -76,6 +77,7 @@ export class PostsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.isLoading = true;
         this.service.getAll()
         /**
          * "subscribe" method means - when result is ready we'll be notified
@@ -84,6 +86,10 @@ export class PostsComponent implements OnInit {
          * our service is not going to call our backend.
          * @see angular5\src\assets\Observables_vs_Promises.png
          */
-            .subscribe(posts => this.posts = posts);
+            .subscribe(posts => {
+                this.posts = posts;
+                this.isLoading = false;
+                console.log(this.isLoading);
+            });
     }
 }

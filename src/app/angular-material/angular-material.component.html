@@ -1,3 +1,16 @@
+<div>
+  <mat-progress-spinner
+          color="primary"
+          mode="determinate"
+          [value]="progress">
+  </mat-progress-spinner>
+  <mat-progress-spinner
+          color="primary"
+          mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+
+
 <button mat-button>Button 1</button>
 <button color="primary" mat-raised-button>Primary</button>
 <button color="accent" mat-raised-button>Accent</button>
@@ -8,6 +21,8 @@
 <button mat-fab color="primary">
     <i class="material-icons">euro_symbol</i>
 </button>
+
+
 
 <mat-chip-list class="mat-chip-list-stacked">
   <mat-chip *ngFor="let chip of availableColors" selected="true" [color]="chip.color">
@@ -31,6 +46,7 @@
            (matChipInputTokenEnd)="add($event)" />
   </mat-chip-list>
 </mat-form-field>
+
 
 
 <div class="col-md-12">
