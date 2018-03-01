@@ -47,9 +47,10 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AngularMaterialComponent} from './angular-material/angular-material.component';
-import { MaterialIconsComponent } from './material-icons/material-icons.component';
+import {MaterialIconsComponent} from './material-icons/material-icons.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import {MatTabsModule} from '@angular/material/tabs';
         AngularMaterialComponent,
         MaterialIconsComponent
     ],
+    entryComponents: [MaterialIconsComponent],
     imports: [
         BrowserModule,
         FormsModule,
@@ -101,6 +103,7 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatTooltipModule,
         MatTabsModule,
         MatCardModule,
+        MatDialogModule,
         RouterModule.forRoot([
             {
                 path: '',
@@ -129,10 +132,6 @@ import {MatTabsModule} from '@angular/material/tabs';
             {
                 path: 'angular-material',
                 component: AngularMaterialComponent
-            },
-            {
-                path: 'material-icons',
-                component: MaterialIconsComponent
             },
             {
                 path: '**',

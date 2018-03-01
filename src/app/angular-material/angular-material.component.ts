@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ENTER, COMMA} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material';
+import {MatChipInputEvent, MatDialog} from '@angular/material';
+import {MaterialIconsComponent} from '../material-icons/material-icons.component';
 
 @Component({
     selector: 'angular-material',
@@ -11,7 +12,7 @@ export class AngularMaterialComponent {
     progress = 0;
     timer;
 
-    constructor() {
+    constructor(private dialog: MatDialog) {
         this.timer = setInterval(() => {
             this.progress++;
             if (this.progress == 100) {
@@ -103,4 +104,14 @@ export class AngularMaterialComponent {
     spinnerColor = 'primary';
     spinnerMode = 'determinate';
     spinnerValue = 75;
+
+
+    openDialog() {
+        this.dialog
+            .open(MaterialIconsComponent)
+            .afterClosed()
+            .subscribe(result => {
+                console.log(result);
+            });
+    }
 }
