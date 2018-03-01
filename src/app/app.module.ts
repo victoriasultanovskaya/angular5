@@ -37,13 +37,19 @@ import {DataService} from './services/data.service';
 import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatRadioModule, MatNativeDateModule, MatProgressSpinnerModule} from '@angular/material';
+import {
+    MatButtonModule, MatCheckboxModule,
+    MatRadioModule, MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule, MatCardModule
+} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AngularMaterialComponent} from './angular-material/angular-material.component';
 import { MaterialIconsComponent } from './material-icons/material-icons.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -92,6 +98,9 @@ import {MatChipsModule} from '@angular/material/chips';
         MatNativeDateModule,
         MatChipsModule,
         MatProgressSpinnerModule,
+        MatTooltipModule,
+        MatTabsModule,
+        MatCardModule,
         RouterModule.forRoot([
             {
                 path: '',
