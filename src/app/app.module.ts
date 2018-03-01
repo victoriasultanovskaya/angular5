@@ -47,7 +47,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AngularMaterialComponent} from './angular-material/angular-material.component';
-import {MaterialIconsComponent} from './material-icons/material-icons.component';
+import {DIALOG_DATA, MaterialIconsComponent} from './material-icons/material-icons.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -146,7 +146,8 @@ import {MatDialogModule} from '@angular/material/dialog';
         AuthorsService,
         PostService,
         GithubFollowersService,
-        {provide: ErrorHandler, useClass: AppErrorHandler}
+        {provide: ErrorHandler, useClass: AppErrorHandler},
+        {provide: DIALOG_DATA, useValue: {}}
     ],
     bootstrap: [AppComponent]
 })

@@ -101,14 +101,17 @@ export class AngularMaterialComponent {
         }
     }
 
-    spinnerColor = 'primary';
-    spinnerMode = 'determinate';
-    spinnerValue = 75;
-
 
     openDialog() {
         this.dialog
-            .open(MaterialIconsComponent)
+            .open(MaterialIconsComponent, {
+                data: {
+                    first_icon: '3d_rotation',
+                    second_icon: 'euro_symbol',
+                    third_icon: 'fingerprint',
+                    fourth_icon: 'face'
+                }
+            })
             .afterClosed()
             .subscribe(result => {
                 console.log(result);
