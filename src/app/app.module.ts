@@ -37,20 +37,9 @@ import {DataService} from './services/data.service';
 import {TodosComponent} from './todos/todos.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {
-    MatButtonModule, MatCheckboxModule,
-    MatRadioModule, MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatTooltipModule, MatCardModule
-} from '@angular/material';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {AngularMaterialComponent} from './angular-material/angular-material.component';
 import {DIALOG_DATA, MaterialIconsComponent} from './material-icons/material-icons.component';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatComponentsModule} from './mat-components.module';
+import {AngularMaterialComponent} from './angular-material/angular-material.component';
 
 
 @NgModule({
@@ -91,19 +80,7 @@ import {MatDialogModule} from '@angular/material/dialog';
         HttpClientModule,
         BrowserAnimationsModule,
         NoopAnimationsModule,
-        MatButtonModule,
-        MatCheckboxModule,
-        MatRadioModule,
-        MatSelectModule,
-        MatInputModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatChipsModule,
-        MatProgressSpinnerModule,
-        MatTooltipModule,
-        MatTabsModule,
-        MatCardModule,
-        MatDialogModule,
+        MatComponentsModule,
         RouterModule.forRoot([
             {
                 path: '',
