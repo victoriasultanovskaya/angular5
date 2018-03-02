@@ -9,7 +9,12 @@ export const DIALOG_DATA = new InjectionToken('DIALOG_DATA');
   styleUrls: ['./material-icons.component.css']
 })
 export class MaterialIconsComponent implements OnInit {
-  dialogData: {};
+  dialogData: {
+      first_icon: '',
+      second_icon: '',
+      third_icon: '',
+      fourth_icon: ''
+  };
 
   constructor(@Inject(MAT_DIALOG_DATA) data: any) {
     this.dialogData = data;
