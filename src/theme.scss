@@ -1,23 +1,10 @@
-$headingColor: #1e88e5;
+@import "~@angular/material/_theming";
 
-h1 {
-  color: $headingColor;
-}
+$app-primary: mat-palette($mat-blue, 600);
+$app-accent: mat-palette($mat-yellow,700);
+$app-warn: mat-palette($mat-red);
 
-h2 {
-  color: $headingColor;
-}
+//$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+$app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
-@mixin soft-border($border-radius) {
-  border: 1px solid #ccc;
-  border-radius: $border-radius;
-  padding: 10px;
-}
-
-.box {
-  @include soft-border(10px);
-}
-
-.modern-box {
-  @include soft-border(5px);
-}
+@include angular-material-theme($app-theme);

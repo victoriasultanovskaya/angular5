@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
     MatButtonModule, MatCardModule,
-    MatCheckboxModule,
+    MatCheckboxModule, MatIconModule, MatMenuModule,
     MatNativeDateModule, MatProgressSpinnerModule,
     MatRadioModule, MatTooltipModule
 } from '@angular/material';
@@ -27,7 +27,9 @@ import {MatInputModule} from '@angular/material/input';
       MatTooltipModule,
       MatTabsModule,
       MatCardModule,
-      MatDialogModule
+      MatDialogModule,
+      MatMenuModule,
+      MatIconModule
   ]
 })
 export class MatComponentsModule { }
