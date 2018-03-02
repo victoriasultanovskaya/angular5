@@ -1,0 +1,23 @@
+$headingColor: #1e88e5;
+
+h1 {
+  color: $headingColor;
+}
+
+h2 {
+  color: $headingColor;
+}
+
+@mixin soft-border($border-radius) {
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  padding: 10px;
+}
+
+.box {
+  @include soft-border(10px);
+}
+
+.modern-box {
+  @include soft-border(5px);
+}
