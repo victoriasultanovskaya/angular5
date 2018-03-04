@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-blog-post',
@@ -14,7 +14,7 @@ export class BlogPostComponent implements OnInit {
     }
 
     ngOnInit() {
-        let params = this.route.snapshot.paramMap;
+        const params = this.route.snapshot.paramMap;
         this.year = +params.get('year');
         this.month = +params.get('month');
     }

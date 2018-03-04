@@ -5,7 +5,7 @@ import {NotFoundError} from '../common/errors/not-found-error';
 import {BadRequestError} from '../common/errors/bad-request-error';
 
 @Component({
-    selector: 'posts',
+    selector: 'app-posts',
     templateUrl: './posts.component.html',
     styleUrls: ['./posts.component.css']
 })
@@ -13,12 +13,13 @@ import {BadRequestError} from '../common/errors/bad-request-error';
 // @see angular5\src\assets\HTTPRequests.png
 export class PostsComponent implements OnInit {
     posts: any;
+    isLoading = false;
 
     constructor(private service: PostService) {
     }
 
     createPost(input: HTMLInputElement) {
-        let post = {title: input.value};
+        const post = {title: input.value};
         /* Optimistic update - first update User Interface then push updates to server and wait for the response :-) */
         this.posts.splice(0, 0, post);
 
@@ -55,7 +56,7 @@ export class PostsComponent implements OnInit {
 
     deletePost(post) {
         /*Optimistic update*/
-        let index = this.posts.indexOf(post);
+        const index = this.posts.indexOf(post);
         this.posts.splice(index, 1);
         /*--Optimistic update*/
 
@@ -76,6 +77,7 @@ export class PostsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.isLoading = true;
         this.service.getAll()
         /**
          * "subscribe" method means - when result is ready we'll be notified
@@ -84,6 +86,9 @@ export class PostsComponent implements OnInit {
          * our service is not going to call our backend.
          * @see angular5\src\assets\Observables_vs_Promises.png
          */
-            .subscribe(posts => this.posts = posts);
+            .subscribe(posts => {
+                this.posts = posts;
+                this.isLoading = false;
+            });
     }
 }

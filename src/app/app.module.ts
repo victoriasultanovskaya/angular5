@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ErrorHandler, NgModule} from '@angular/core';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {CoursesComponent} from './courses.component';
@@ -21,18 +21,24 @@ import {NewCourseFormComponent} from './new-course-form/new-course-form.componen
 import {SignupFormComponent} from './signup-form/signup-form.component';
 import {CourseTopicComponent} from './course-topic/course-topic.component';
 import {ChangePasswordComponent} from './change-password/change-password.component';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {PostsComponent} from './posts/posts.component';
 import {PostService} from './services/post/post.service';
 import {AppErrorHandler} from './common/errors/app-error-handler';
 import {GithubFollowersComponent} from './github-followers/github-followers.component';
-import {GithubFollowersService} from "./services/github-followers/github-followers.service";
-import {NavbarComponent} from "./navbar/navbar.component";
-import {HomeComponent} from "./home/home.component";
-import {GithubProfileComponent} from "./github-profile/github-profile.component";
-import {NotFoundComponent} from "./not-found/not-found.component";
-import { BlogComponent } from './blog/blog.component';
-import { BlogPostComponent } from './blog-post/blog-post.component';
+import {GithubFollowersService} from './services/github-followers/github-followers.service';
+import {NavbarComponent} from './navbar/navbar.component';
+import {HomeComponent} from './home/home.component';
+import {GithubProfileComponent} from './github-profile/github-profile.component';
+import {NotFoundComponent} from './not-found/not-found.component';
+import {BlogComponent} from './blog/blog.component';
+import {BlogPostComponent} from './blog-post/blog-post.component';
+import {TodosComponent} from './todos/todos.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {DIALOG_DATA, MaterialIconsComponent} from './material-icons/material-icons.component';
+import {MatComponentsModule} from './mat-components.module';
+import {AngularMaterialComponent} from './angular-material/angular-material.component';
 
 
 @NgModule({
@@ -60,13 +66,20 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
         HomeComponent,
         NotFoundComponent,
         BlogComponent,
-        BlogPostComponent
+        BlogPostComponent,
+        TodosComponent,
+        AngularMaterialComponent,
+        MaterialIconsComponent
     ],
+    entryComponents: [MaterialIconsComponent],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        MatComponentsModule,
         RouterModule.forRoot([
             {
                 path: '',
@@ -93,18 +106,23 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
                 component: BlogComponent
             },
             {
+                path: 'angular-material',
+                component: AngularMaterialComponent
+            },
+            {
                 path: '**',
                 component: NotFoundComponent
             }
         ])
     ],
+    exports: [],
     providers: [
         CoursesService,
         AuthorsService,
         PostService,
         GithubFollowersService,
-        //means "Instead of ErrorHandler use class AppErrorHandler"
-        {provide: ErrorHandler, useClass: AppErrorHandler}
+        {provide: ErrorHandler, useClass: AppErrorHandler},
+        {provide: DIALOG_DATA, useValue: {}}
     ],
     bootstrap: [AppComponent]
 })

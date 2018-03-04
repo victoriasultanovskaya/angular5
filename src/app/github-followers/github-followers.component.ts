@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {GithubFollowersService} from '../services/github-followers/github-followers.service';
-import {ActivatedRoute} from "@angular/router";
-import {Observable} from "rxjs/Observable";
+import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    selector: 'github-followers',
+    selector: 'app-github-followers',
     templateUrl: './github-followers.component.html',
     styleUrls: ['./github-followers.component.css']
 })
@@ -35,8 +35,8 @@ export class GithubFollowersComponent implements OnInit {
                      * combined[0] same as this.route.paramMap
                      * combined[1] same as this.route.queryParamMap
                      */
-                    let userId = +combined[0].get('userId');
-                    let page = +combined[1].get('page');
+                    const userId = +combined[0].get('userId');
+                    const page = +combined[1].get('page');
 
                     // this.service.getAll({id: userId, page: page})
                     //     .subscribe(followers => this.followers = followers);

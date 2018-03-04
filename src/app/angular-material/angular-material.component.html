@@ -1,0 +1,161 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group class="demo-tab-group">
+
+      <mat-tab label="RadioButton">
+        <div class="demo-tab-content">
+          <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteSeason">
+            <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+              {{season}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <div class="example-selected-value">Your favorite season is: {{favoriteSeason}}</div>
+
+          <mat-radio-group class="example-radio-group" value="1">
+            <mat-radio-button value="1">female</mat-radio-button>
+            <mat-radio-button value="0">male</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Checkbox">
+        <div class="demo-tab-content">
+          <mat-checkbox
+                  #showDetails
+                  name="pupa"
+                  [checked]="isChecked"
+                  (change)="onChange($event)"
+                  [value]="">
+            Show Details
+          </mat-checkbox>
+          <div *ngIf="showDetails.checked">Some details ...</div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Select">
+        <div class="demo-tab-content">
+          <mat-select class="favorite-food" placeholder="Favorite food" [(ngModel)]="favoriteFood">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{ food.viewValue }}
+            </mat-option>
+          </mat-select>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Input">
+        <div class="demo-tab-content">
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput
+                     placeholder="Username"
+                     ngModel
+                     name="username"
+                     #username="ngModel"
+                     value=""
+                     required>
+              <mat-hint>Type a unique username.</mat-hint>
+              <span matPrefix>admin.</span>
+              <span matSuffix>@domain.com</span>
+              <mat-error *ngIf="username.invalid && username.errors.required">
+                This field is required!
+              </mat-error>
+            </mat-form-field>
+          </form>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Textarea">
+        <div class="demo-tab-content">
+          <mat-form-field>
+            <textarea matInput
+                      placeholder="Autosize textarea"
+                      matTextareaAutosize
+                      matAutosizeMinRows="2"
+                      matAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="DatePicker">
+        <div class="demo-tab-content">
+          <mat-form-field>
+            <input
+                    matInput
+                    [matDatepicker]="picker"
+                    [min]="minDate"
+                    [max]="maxDate"
+                    (focus)="picker.open()"
+                    placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker touchUi="true" #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Chips">
+        <div class="demo-tab-content">
+          <mat-form-field class="demo-chip-list">
+            <mat-chip-list #chipList>
+              <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable"
+                        [removable]="removable" (remove)="remove(fruit)">
+                {{fruit.name}}
+                <i class="material-icons" matChipRemove *ngIf="removable">remove_circle_outline</i>
+              </mat-chip>
+              <input placeholder="New fruit..."
+                     [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)" />
+            </mat-chip-list>
+          </mat-form-field>
+          <br>
+          <mat-chip-list class="mat-chip-list-stacked">
+            <mat-chip *ngFor="let chip of availableColors" selected="true" [color]="chip.color">
+              {{chip.name}}
+            </mat-chip>
+          </mat-chip-list>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Buttons">
+        <div class="demo-tab-content">
+          <button mat-button>Button 1</button>
+          <button color="primary" mat-raised-button>Primary</button>
+          <button color="accent" mat-raised-button>Accent</button>
+          <button color="warn" mat-raised-button>Warn</button>
+          <button mat-fab>
+            <i class="material-icons">euro_symbol</i>
+          </button>
+          <button mat-fab color="primary">
+            <i class="material-icons">euro_symbol</i>
+          </button>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Progress Spinner">
+        <div class="demo-tab-content">
+          <mat-progress-spinner
+                  color="primary"
+                  mode="determinate"
+                  [value]="progress">
+          </mat-progress-spinner>
+          <mat-progress-spinner
+                  color="primary"
+                  mode="indeterminate">
+          </mat-progress-spinner>
+        </div>
+      </mat-tab>
+
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
+
+<br>
+<div>
+  <button mat-raised-button (click)="openDialog()">MaterialIconsComponent</button>
+</div>
+
+
+
+
+

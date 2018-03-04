@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {PasswordValidators} from "../common/validators/password.validators";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {PasswordValidators} from '../common/validators/password.validators';
 
 @Component({
-    selector: 'change-password',
+    selector: 'app-change-password',
     templateUrl: './change-password.component.html',
     styleUrls: ['./change-password.component.css']
 })
